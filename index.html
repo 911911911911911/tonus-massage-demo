@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TONUS – Praxis für Sport- & Medizinische Massage</title>
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#14302e',
+            sage: { 50:'#f3f7f6',100:'#e2ecea',200:'#c5d9d5',300:'#9dbfb8',400:'#6f9e96',500:'#4f8279',600:'#3d6962',700:'#325550',800:'#2a4642',900:'#1f3532' },
+            sand: { 50:'#fbf9f5',100:'#f4efe6',200:'#e8dfcf',300:'#d6c6aa' },
+            coral:{ 100:'#fde4dc',400:'#f08a6c',500:'#e5694a',600:'#c9502f' }
+          },
+          fontFamily: {
+            sans: ['Inter','system-ui','sans-serif'],
+            display: ['Fraunces','Georgia','serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { -webkit-font-smoothing: antialiased; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { scrollbar-width: none; }
+    input[type=range] { accent-color: #e5694a; }
+    .chip-active { background:#325550 !important; color:#fff !important; border-color:#325550 !important; }
+    .fade-in { animation: fadeIn .25s ease-out; }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to { opacity:1; transform:none; } }
+    .dot { animation: blink 1.2s infinite both; }
+    .dot:nth-child(2){ animation-delay:.2s } .dot:nth-child(3){ animation-delay:.4s }
+    @keyframes blink { 0%,80%,100%{opacity:.25} 40%{opacity:1} }
+  </style>
+</head>
+
+<body class="bg-sand-50 text-ink font-sans">
+
+  <!-- ============ DEMO BANNER ============ -->
+  <div class="bg-ink text-sand-100 text-xs text-center py-2 px-4" data-i18n="banner"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-40 bg-sand-50/85 backdrop-blur border-b border-sand-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2.5 shrink-0">
+        <span class="w-9 h-9 rounded-xl bg-sage-700 text-white grid place-items-center font-display text-lg">T</span>
+        <span class="leading-tight">
+          <span class="block font-display text-lg font-semibold tracking-wide">TONUS</span>
+          <span class="block text-[11px] text-sage-600 -mt-0.5" data-i18n="brand_sub"></span>
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-sage-800">
+        <a href="#leistungen" class="hover:text-coral-500" data-i18n="nav_services"></a>
+        <a href="#buchung" class="hover:text-coral-500" data-i18n="nav_booking"></a>
+        <a href="#dashboard" class="hover:text-coral-500" data-i18n="nav_dashboard"></a>
+        <a href="#kontakt" class="hover:text-coral-500" data-i18n="nav_contact"></a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <div class="flex rounded-full border border-sage-200 bg-white p-0.5 text-xs font-semibold" role="group" aria-label="Sprache">
+          <button data-lang="de" class="lang-btn px-2.5 py-1 rounded-full">DE</button>
+          <button data-lang="en" class="lang-btn px-2.5 py-1 rounded-full">EN</button>
+        </div>
+        <a href="#buchung" class="hidden sm:inline-flex bg-coral-500 hover:bg-coral-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition" data-i18n="cta_book"></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sage-700 bg-sage-100 px-3 py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-coral-500"></span><span data-i18n="hero_badge"></span>
+        </span>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] mt-5" data-i18n="hero_title"></h1>
+        <p class="mt-5 text-lg text-sage-800/80 max-w-lg" data-i18n="hero_sub"></p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#buchung" class="bg-sage-700 hover:bg-sage-800 text-white font-semibold px-6 py-3 rounded-full transition" data-i18n="hero_cta1"></a>
+          <a href="#leistungen" class="bg-white border border-sage-200 hover:border-sage-400 font-semibold px-6 py-3 rounded-full transition" data-i18n="hero_cta2"></a>
+        </div>
+        <div class="mt-8 flex items-center gap-3 text-sm text-sage-700">
+          <span class="text-coral-500 tracking-tight">★★★★★</span>
+          <span data-i18n="hero_rating"></span>
+        </div>
+      </div>
+
+      <!-- Hero visual -->
+      <div class="relative">
+        <div class="aspect-[4/3.4] rounded-[2rem] bg-gradient-to-br from-sage-600 via-sage-700 to-ink overflow-hidden relative shadow-xl">
+          <div class="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-sage-400/30"></div>
+          <div class="absolute bottom-0 -left-10 w-64 h-64 rounded-full bg-coral-400/20"></div>
+          <svg viewBox="0 0 200 200" class="absolute inset-0 m-auto w-2/3 opacity-90" aria-hidden="true">
+            <circle cx="100" cy="40" r="18" fill="#f4efe6"/>
+            <path d="M62 70 Q100 56 138 70 L130 150 Q100 162 70 150 Z" fill="#f4efe6"/>
+            <path d="M100 66 L100 150" stroke="#9dbfb8" stroke-width="2" stroke-dasharray="3 5"/>
+            <circle cx="100" cy="128" r="16" fill="#f08a6c" opacity=".55"/>
+            <circle cx="78" cy="78" r="11" fill="#f08a6c" opacity=".45"/>
+            <circle cx="122" cy="78" r="11" fill="#f08a6c" opacity=".45"/>
+          </svg>
+        </div>
+        <!-- Floating: next slot -->
+        <div class="absolute -bottom-6 -left-4 sm:left-6 bg-white rounded-2xl shadow-lg p-4 w-60 border border-sand-200">
+          <p class="text-xs text-sage-600 font-medium" data-i18n="hero_next"></p>
+          <p id="heroNext" class="font-semibold mt-1"></p>
+          <a href="#buchung" class="mt-3 inline-flex text-xs font-semibold text-coral-500 hover:underline" data-i18n="hero_next_cta"></a>
+        </div>
+        <!-- Floating: quote -->
+        <div class="hidden sm:block absolute -top-5 -right-3 bg-white rounded-2xl shadow-lg p-4 w-56 border border-sand-200">
+          <p class="text-sm leading-snug" data-i18n="hero_quote"></p>
+          <p class="text-xs text-sage-600 mt-2">— Julia B., Augsburg</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="border-y border-sand-200 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+        <div class="flex items-start gap-3"><span class="text-xl">🎓</span><span data-i18n="trust1"></span></div>
+        <div class="flex items-start gap-3"><span class="text-xl">🩺</span><span data-i18n="trust2"></span></div>
+        <div class="flex items-start gap-3"><span class="text-xl">📱</span><span data-i18n="trust3"></span></div>
+        <div class="flex items-start gap-3"><span class="text-xl">🅿️</span><span data-i18n="trust4"></span></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="leistungen" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-coral-500" data-i18n="svc_kicker"></p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2" data-i18n="svc_title"></h2>
+        <p class="mt-3 text-sage-800/80" data-i18n="svc_sub"></p>
+      </div>
+      <div id="serviceGrid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-5">
+        <div class="md:col-span-2 rounded-2xl bg-sage-100 p-6">
+          <h3 class="font-semibold flex items-center gap-2">🧾 <span data-i18n="ins_title"></span></h3>
+          <p class="text-sm mt-2 text-sage-900/80 leading-relaxed" data-i18n="ins_text"></p>
+        </div>
+        <div class="rounded-2xl bg-sand-100 p-6">
+          <h3 class="font-semibold" data-i18n="card_title"></h3>
+          <p class="text-sm mt-2 text-sage-900/80" data-i18n="card_text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING ============ -->
+    <section id="buchung" class="bg-white border-y border-sand-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-coral-500" data-i18n="book_kicker"></p>
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2" data-i18n="book_title"></h2>
+          <p class="mt-3 text-sage-800/80" data-i18n="book_sub"></p>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-3 gap-8 items-start">
+          <form id="bookingForm" class="lg:col-span-2 space-y-8" novalidate>
+
+            <!-- Step 1: Symptoms -->
+            <fieldset class="rounded-2xl border border-sand-200 p-5 sm:p-6">
+              <legend class="px-2 font-semibold flex items-center gap-2"><span class="step-no">1</span><span data-i18n="step1"></span></legend>
+              <p class="text-xs text-sage-600 mb-3" data-i18n="step1_hint"></p>
+              <div id="symptomChips" class="flex flex-wrap gap-2"></div>
+              <div class="mt-6">
+                <div class="flex justify-between text-sm font-medium">
+                  <label for="pain" data-i18n="pain_label"></label>
+                  <span><span id="painVal" class="font-semibold text-coral-500">5</span> / 10</span>
+                </div>
+                <input id="pain" type="range" min="0" max="10" value="5" class="w-full mt-2" />
+                <div class="flex justify-between text-xs text-sage-600"><span data-i18n="pain_none"></span><span data-i18n="pain_max"></span></div>
+              </div>
+              <div id="recBox" class="hidden mt-5 rounded-xl bg-coral-100/60 border border-coral-400/30 p-4 text-sm fade-in"></div>
+            </fieldset>
+
+            <!-- Step 2: Service -->
+            <fieldset class="rounded-2xl border border-sand-200 p-5 sm:p-6">
+              <legend class="px-2 font-semibold flex items-center gap-2"><span class="step-no">2</span><span data-i18n="step2"></span></legend>
+              <div id="serviceOptions" class="grid sm:grid-cols-2 gap-3"></div>
+            </fieldset>
+
+            <!-- Step 3: Therapist -->
+            <fieldset class="rounded-2xl border border-sand-200 p-5 sm:p-6">
+              <legend class="px-2 font-semibold flex items-center gap-2"><span class="step-no">3</span><span data-i18n="step3"></span></legend>
+              <div id="therapistToggle" class="inline-flex rounded-full bg-sand-100 p-1 text-sm font-medium"></div>
+              <p class="text-xs text-sage-600 mt-3" data-i18n="step3_hint"></p>
+            </fieldset>
+
+            <!-- Step 4: Date & time -->
+            <fieldset class="rounded-2xl border border-sand-200 p-5 sm:p-6">
+              <legend class="px-2 font-semibold flex items-center gap-2"><span class="step-no">4</span><span data-i18n="step4"></span></legend>
+              <div id="dateStrip" class="flex gap-2 overflow-x-auto no-scrollbar pb-1"></div>
+              <div id="slotGrid" class="mt-4 grid grid-cols-3 sm:grid-cols-5 gap-2"></div>
+            </fieldset>
+
+            <!-- Step 5: Personal + health -->
+            <fieldset class="rounded-2xl border border-sand-200 p-5 sm:p-6">
+              <legend class="px-2 font-semibold flex items-center gap-2"><span class="step-no">5</span><span data-i18n="step5"></span></legend>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <input id="fName" class="field" data-i18n-ph="f_name" autocomplete="name" />
+                <input id="fPhone" class="field" data-i18n-ph="f_phone" type="tel" autocomplete="tel" />
+                <input id="fEmail" class="field sm:col-span-2" data-i18n-ph="f_email" type="email" autocomplete="email" />
+                <textarea id="fNotes" rows="3" class="field sm:col-span-2" data-i18n-ph="f_notes"></textarea>
+              </div>
+              <div class="mt-5 rounded-xl bg-sand-50 border border-sand-200 p-4">
+                <p class="text-sm font-semibold mb-3" data-i18n="health_title"></p>
+                <div class="grid sm:grid-cols-2 gap-2 text-sm">
+                  <label class="flex items-center gap-2"><input type="checkbox" id="hPreg" class="accent-sage-700 w-4 h-4"><span data-i18n="h_preg"></span></label>
+                  <label class="flex items-center gap-2"><input type="checkbox" id="hBlood" class="accent-sage-700 w-4 h-4"><span data-i18n="h_blood"></span></label>
+                  <label class="flex items-center gap-2"><input type="checkbox" id="hAcute" class="accent-sage-700 w-4 h-4"><span data-i18n="h_acute"></span></label>
+                  <label class="flex items-center gap-2"><input type="checkbox" id="hRx" class="accent-sage-700 w-4 h-4"><span data-i18n="h_rx"></span></label>
+                </div>
+              </div>
+              <label class="mt-4 flex items-start gap-2 text-xs text-sage-700">
+                <input type="checkbox" id="consent" class="accent-sage-700 w-4 h-4 mt-0.5 shrink-0"><span data-i18n="consent"></span>
+              </label>
+            </fieldset>
+          </form>
+
+          <!-- Summary -->
+          <aside class="lg:sticky lg:top-24 rounded-2xl bg-ink text-sand-50 p-6 shadow-xl">
+            <h3 class="font-display text-xl font-semibold" data-i18n="sum_title"></h3>
+            <dl class="mt-5 space-y-3 text-sm">
+              <div class="flex justify-between gap-4"><dt class="text-sage-300" data-i18n="sum_service"></dt><dd id="sumService" class="text-right font-medium"></dd></div>
+              <div class="flex justify-between gap-4"><dt class="text-sage-300" data-i18n="sum_therapist"></dt><dd id="sumTherapist" class="text-right font-medium"></dd></div>
+              <div class="flex justify-between gap-4"><dt class="text-sage-300" data-i18n="sum_date"></dt><dd id="sumDate" class="text-right font-medium"></dd></div>
+              <div class="flex justify-between gap-4"><dt class="text-sage-300" data-i18n="sum_symptoms"></dt><dd id="sumSymptoms" class="text-right font-medium"></dd></div>
+              <div class="border-t border-white/15 pt-3 flex justify-between gap-4 text-base"><dt data-i18n="sum_price"></dt><dd id="sumPrice" class="font-semibold"></dd></div>
+            </dl>
+            <p id="formError" class="hidden mt-4 text-xs bg-coral-500/20 border border-coral-400/40 text-coral-100 rounded-lg p-3"></p>
+            <button id="submitBtn" type="button" class="mt-6 w-full bg-coral-500 hover:bg-coral-600 transition text-white font-semibold py-3 rounded-full" data-i18n="submit"></button>
+            <p class="mt-3 text-xs text-sage-300 text-center" data-i18n="sum_note"></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OWNER DASHBOARD ============ -->
+    <section id="dashboard" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+      <div class="grid lg:grid-cols-3 gap-8 items-end">
+        <div class="lg:col-span-2">
+          <p class="text-sm font-semibold uppercase tracking-wider text-coral-500" data-i18n="dash_kicker"></p>
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2" data-i18n="dash_title"></h2>
+          <p class="mt-3 text-sage-800/80" data-i18n="dash_sub"></p>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2"><span class="text-sage-600">✓</span><span data-i18n="dash_feat1"></span></li>
+          <li class="flex gap-2"><span class="text-sage-600">✓</span><span data-i18n="dash_feat2"></span></li>
+          <li class="flex gap-2"><span class="text-sage-600">✓</span><span data-i18n="dash_feat3"></span></li>
+        </ul>
+      </div>
+
+      <!-- Tablet frame -->
+      <div class="mt-10 rounded-[2.2rem] bg-ink p-2.5 sm:p-3.5 shadow-2xl">
+        <div class="rounded-[1.6rem] bg-sand-50 overflow-hidden">
+          <!-- App bar -->
+          <div class="flex items-center justify-between px-5 py-3 bg-white border-b border-sand-200">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-sage-700 text-white grid place-items-center font-display text-sm">T</span>
+              <span class="font-semibold text-sm" data-i18n="dash_app"></span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-sage-600">
+              <span id="dashDate"></span>
+              <span class="w-7 h-7 rounded-full bg-coral-100 text-coral-600 grid place-items-center font-semibold">MS</span>
+            </div>
+          </div>
+          <!-- Stats -->
+          <div id="dashStats" class="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 sm:p-5"></div>
+          <!-- List + detail -->
+          <div class="grid md:grid-cols-5 gap-4 px-4 sm:px-5 pb-5">
+            <div class="md:col-span-2 rounded-2xl bg-white border border-sand-200 overflow-hidden">
+              <div class="px-4 py-3 border-b border-sand-200 text-sm font-semibold" data-i18n="dash_list"></div>
+              <ul id="dashList" class="divide-y divide-sand-200 max-h-[26rem] overflow-y-auto"></ul>
+            </div>
+            <div id="dashDetail" class="md:col-span-3 rounded-2xl bg-white border border-sand-200 p-5"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="kontakt" class="bg-sage-800 text-sand-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid md:grid-cols-3 gap-10">
+        <div>
+          <h2 class="font-display text-3xl font-semibold" data-i18n="contact_title"></h2>
+          <p class="mt-3 text-sage-200 text-sm" data-i18n="contact_sub"></p>
+        </div>
+        <div class="text-sm space-y-1.5">
+          <p class="font-semibold mb-2" data-i18n="contact_addr"></p>
+          <p>TONUS Praxis</p>
+          <p>Musterstraße 12</p>
+          <p>86150 Augsburg</p>
+          <p class="pt-2">☎ 0821 000 000 00</p>
+          <p>✉ hallo@tonus-praxis.example</p>
+        </div>
+        <div class="text-sm">
+          <p class="font-semibold mb-2" data-i18n="contact_hours"></p>
+          <div class="grid grid-cols-2 gap-y-1.5 max-w-xs">
+            <span data-i18n="h_weekdays"></span><span>8:00 – 20:00</span>
+            <span data-i18n="h_sat"></span><span>9:00 – 14:00</span>
+            <span data-i18n="h_sun"></span><span data-i18n="h_closed"></span>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap justify-between gap-3 text-xs text-sage-300">
+          <span>© 2026 TONUS · <span data-i18n="footer_demo"></span></span>
+          <span class="space-x-4"><a href="#" class="hover:text-white">Impressum</a><a href="#" class="hover:text-white" data-i18n="footer_privacy"></a></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ CHAT WIDGET ============ -->
+  <div id="chatPanel" class="hidden fixed bottom-24 right-4 sm:right-6 z-50 w-[22.5rem] max-w-[calc(100vw-2rem)] h-[34rem] max-h-[calc(100vh-8rem)] bg-white rounded-3xl shadow-2xl border border-sand-200 flex flex-col overflow-hidden fade-in">
+    <div class="bg-sage-700 text-white px-5 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="relative w-9 h-9 rounded-full bg-white/15 grid place-items-center">✦
+          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 ring-2 ring-sage-700"></span>
+        </span>
+        <div class="leading-tight">
+          <p class="font-semibold text-sm" data-i18n="chat_title"></p>
+          <p class="text-xs text-sage-200" data-i18n="chat_status"></p>
+        </div>
+      </div>
+      <button id="chatClose" class="text-white/80 hover:text-white text-xl leading-none" aria-label="Close">×</button>
+    </div>
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-sand-50"></div>
+    <div id="chatChips" class="px-3 pt-3 flex flex-wrap gap-1.5 bg-white border-t border-sand-200"></div>
+    <form id="chatForm" class="p-3 flex gap-2 bg-white">
+      <input id="chatInput" class="flex-1 rounded-full border border-sand-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300" data-i18n-ph="chat_ph" />
+      <button class="w-10 h-10 rounded-full bg-coral-500 hover:bg-coral-600 text-white grid place-items-center" aria-label="Send">
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12.6 2-12.6 2z"/></svg>
+      </button>
+    </form>
+  </div>
+  <button id="chatToggle" class="fixed bottom-5 right-4 sm:right-6 z-50 h-14 pl-4 pr-5 rounded-full bg-sage-700 hover:bg-sage-800 text-white shadow-xl flex items-center gap-2 font-semibold text-sm transition">
+    <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+    <span data-i18n="chat_btn"></span>
+  </button>
+
+  <!-- ============ CONFIRMATION MODAL ============ -->
+  <div id="modal" class="hidden fixed inset-0 z-[60] bg-ink/60 backdrop-blur-sm grid place-items-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl fade-in">
+      <div class="w-14 h-14 rounded-full bg-sage-100 text-sage-700 grid place-items-center text-2xl">✓</div>
+      <h3 class="font-display text-2xl font-semibold mt-4" data-i18n="modal_title"></h3>
+      <div id="modalBody" class="mt-3 text-sm text-sage-800 space-y-1"></div>
+      <p class="mt-4 text-xs text-sage-600" data-i18n="modal_text"></p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-2">
+        <button id="modalDash" class="flex-1 bg-sage-700 hover:bg-sage-800 text-white font-semibold py-2.5 rounded-full" data-i18n="modal_dash"></button>
+        <button id="modalClose" class="flex-1 border border-sand-200 font-semibold py-2.5 rounded-full" data-i18n="modal_close"></button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .field { width:100%; border:1px solid #e8dfcf; background:#fff; border-radius:.75rem; padding:.65rem .9rem; font-size:.9rem; }
+    .field:focus { outline:none; border-color:#6f9e96; box-shadow:0 0 0 3px #e2ecea; }
+    .step-no { width:1.6rem; height:1.6rem; border-radius:999px; background:#325550; color:#fff; display:grid; place-items:center; font-size:.75rem; }
+  </style>
+
+<script>
+/* =========================================================
+   1) CONTENT & TRANSLATIONS
+   ========================================================= */
+const I18N = {
+  de: {
+    banner: 'Live-Demo · Fiktive Praxis – alle Namen, Preise & Daten sind Beispiele',
+    brand_sub: 'Sport- & Medizinische Massage',
+    nav_services: 'Leistungen', nav_booking: 'Termin buchen', nav_dashboard: 'Für Praxen', nav_contact: 'Kontakt',
+    cta_book: 'Termin buchen',
+    hero_badge: 'Massagepraxis in Augsburg',
+    hero_title: 'Weniger Schmerz. Mehr Bewegung.',
+    hero_sub: 'Gezielte Sport- und Medizinische Massage für Rücken, Nacken und Regeneration – von staatlich geprüften Therapeut:innen. Online buchen in unter 2 Minuten.',
+    hero_cta1: 'Online Termin buchen', hero_cta2: 'Leistungen & Preise',
+    hero_rating: '4,9 / 5 aus 312 Bewertungen',
+    hero_next: 'Nächster freier Termin', hero_next_cta: 'Jetzt reservieren →',
+    hero_quote: '„Nach drei Terminen sind meine Rückenschmerzen vom Büro endlich weg.“',
+    trust1: 'Staatlich geprüfte Masseur:innen & Physiotherapeut:innen',
+    trust2: 'Gesetzlich & privat mit ärztlichem Rezept',
+    trust3: 'Digitaler Anamnesebogen – kein Papierkram',
+    trust4: 'Kostenlose Parkplätze direkt am Haus',
+    svc_kicker: 'Leistungen & Preise', svc_title: 'Behandlungen, die wirken',
+    svc_sub: 'Transparente Selbstzahlerpreise inkl. MwSt.¹ Mit ärztlicher Verordnung rechnen wir direkt mit Ihrer Krankenkasse ab.',
+    svc_select: 'Auswählen', min: 'Min.',
+    ins_title: 'Zahlt die Krankenkasse?',
+    ins_text: 'Mit ärztlicher Verordnung (Rezept) übernehmen gesetzliche Krankenkassen Massage, Krankengymnastik und Manuelle Therapie – Sie zahlen nur die gesetzliche Zuzahlung (10 % der Kosten + 10 € pro Verordnung). Privatversicherte und Beihilfeberechtigte erhalten eine Rechnung zur Erstattung. Ohne Rezept gelten unsere Selbstzahlerpreise.',
+    card_title: '10er-Karte: –10 %', card_text: 'Für regelmäßige Behandlungen – übertragbar und 12 Monate gültig. ¹ Heilbehandlungen sind teils umsatzsteuerfrei.',
+    book_kicker: 'Online-Buchung', book_title: 'Ihr Termin in 2 Minuten',
+    book_sub: 'Beschreiben Sie kurz Ihre Beschwerden – wir empfehlen die passende Behandlung und Ihr:e Therapeut:in ist bestens vorbereitet.',
+    step1: 'Was führt Sie zu uns?', step1_hint: 'Mehrfachauswahl möglich',
+    pain_label: 'Aktuelle Schmerzintensität', pain_none: 'keine', pain_max: 'sehr stark',
+    rec_label: 'Unsere Empfehlung:', rec_apply: 'Übernehmen',
+    step2: 'Behandlung wählen',
+    step3: 'Therapeut:in', step3_hint: 'Wir respektieren Ihren Wunsch – die freien Zeiten passen sich automatisch an.',
+    th_any: 'Egal', th_female: 'Weiblich', th_male: 'Männlich',
+    step4: 'Datum & Uhrzeit', no_slots: 'An diesem Tag ist leider nichts mehr frei – bitte wählen Sie einen anderen Tag.',
+    today: 'Heute', tomorrow: 'Morgen',
+    step5: 'Ihre Angaben',
+    f_name: 'Vor- und Nachname *', f_phone: 'Telefon', f_email: 'E-Mail',
+    f_notes: 'Optional: Seit wann bestehen die Beschwerden? Beruf, Sport, Vorerkrankungen …',
+    health_title: 'Kurzer Gesundheitscheck (trifft zu?)',
+    h_preg: 'Schwangerschaft', h_blood: 'Einnahme von Blutverdünnern', h_acute: 'Akute Verletzung, Fieber oder Entzündung', h_rx: 'Ich habe ein ärztliches Rezept',
+    consent: 'Ich willige ein, dass meine Gesundheitsangaben zur Vorbereitung der Behandlung verarbeitet werden (Art. 9 Abs. 2 lit. a DSGVO). Widerruf jederzeit möglich. *',
+    sum_title: 'Ihre Buchung', sum_service: 'Behandlung', sum_therapist: 'Therapeut:in', sum_date: 'Termin', sum_symptoms: 'Beschwerden', sum_price: 'Preis',
+    submit: 'Verbindlich buchen', sum_note: 'Kostenlose Stornierung bis 24 h vorher',
+    err_missing: 'Bitte noch ergänzen:', e_service: 'Behandlung', e_slot: 'Datum & Uhrzeit', e_name: 'Name', e_contact: 'Telefon oder E-Mail', e_consent: 'Einwilligung',
+    modal_title: 'Termin reserviert!', modal_text: 'Sie erhalten eine Bestätigung per E-Mail/SMS inkl. Stornolink. (Demo – es wird nichts versendet.)',
+    modal_dash: 'Im Praxis-Dashboard ansehen', modal_close: 'Schließen',
+    dash_kicker: 'Für Praxisinhaber:innen', dash_title: 'So sieht Ihre Praxis jede Buchung',
+    dash_sub: 'Buchen Sie oben einen Testtermin – er erscheint hier sofort inklusive digitalem Anamnesebogen.',
+    dash_feat1: 'Anamnese vor dem Termin – mehr Zeit für die Behandlung',
+    dash_feat2: 'Automatische Erinnerungen reduzieren No-Shows',
+    dash_feat3: 'Für DSGVO-konformes Hosting in Deutschland konzipiert',
+    dash_app: 'Praxis-Cockpit', dash_list: 'Eingehende Buchungen',
+    st_appts: 'Termine gesamt', st_load: 'Auslastung heute', st_new: 'Neue Anamnesebögen', st_rev: 'Geplanter Umsatz',
+    dash_intake: 'Digitaler Anamnesebogen', dash_pain: 'Schmerzintensität', dash_areas: 'Betroffene Regionen',
+    dash_symptoms: 'Beschwerden', dash_flags: 'Gesundheitshinweise', dash_noflags: 'Keine Kontraindikationen angegeben',
+    dash_notes: 'Notiz der Patient:in', dash_nonotes: '—', dash_confirm: 'Termin bestätigen', dash_call: 'Anrufen',
+    dash_contact: 'Kontakt', dash_rx: 'Rezept liegt vor', dash_selfpay: 'Selbstzahler',
+    status_pending: 'Neu', status_confirmed: 'Bestätigt', with: 'bei', flag_warn: 'Hinweis',
+    contact_title: 'Besuchen Sie uns', contact_sub: '2 Minuten von der Tram-Haltestelle, barrierefreier Zugang im Erdgeschoss.',
+    contact_addr: 'Adresse', contact_hours: 'Öffnungszeiten',
+    h_weekdays: 'Mo – Fr', h_sat: 'Samstag', h_sun: 'Sonn- & Feiertage', h_closed: 'geschlossen',
+    footer_demo: 'Prototyp / Demo', footer_privacy: 'Datenschutz',
+    chat_btn: 'Fragen?', chat_title: 'TONUS Assistent', chat_status: 'Antwortet sofort · KI-Prototyp',
+    chat_hello: 'Hallo! 👋 Ich bin der digitale Assistent der Praxis TONUS. Wählen Sie eine Frage unten oder schreiben Sie mir.',
+    chat_ph: 'Ihre Frage …',
+    chat_fallback: 'Gute Frage! Das klärt unser Team gern persönlich: ☎ 0821 000 000 00 (Mo–Fr 8–20 Uhr). Oder wählen Sie eines der Themen unten.'
+  },
+  en: {
+    banner: 'Live demo · Fictional practice – all names, prices & data are examples',
+    brand_sub: 'Sports & Medical Massage',
+    nav_services: 'Services', nav_booking: 'Book now', nav_dashboard: 'For practices', nav_contact: 'Contact',
+    cta_book: 'Book appointment',
+    hero_badge: 'Massage practice in Augsburg',
+    hero_title: 'Less pain. More movement.',
+    hero_sub: 'Targeted sports and medical massage for back, neck and recovery – by state-certified therapists. Book online in under 2 minutes.',
+    hero_cta1: 'Book online', hero_cta2: 'Services & prices',
+    hero_rating: '4.9 / 5 from 312 reviews',
+    hero_next: 'Next available slot', hero_next_cta: 'Reserve now →',
+    hero_quote: '"After three sessions my desk-job back pain is finally gone."',
+    trust1: 'State-certified massage therapists & physiotherapists',
+    trust2: 'Public & private insurance with a prescription',
+    trust3: 'Digital intake form – no paperwork',
+    trust4: 'Free parking right at the building',
+    svc_kicker: 'Services & prices', svc_title: 'Treatments that work',
+    svc_sub: 'Transparent self-pay prices incl. VAT.¹ With a doctor\'s prescription we bill your health insurer directly.',
+    svc_select: 'Select', min: 'min',
+    ins_title: 'Does health insurance cover it?',
+    ins_text: 'With a doctor\'s prescription (Heilmittelverordnung), German statutory insurers cover massage, physiotherapy and manual therapy – you only pay the statutory co-payment (10% of costs + €10 per prescription). Privately insured patients receive an invoice for reimbursement. Without a prescription our self-pay prices apply.',
+    card_title: '10-session card: –10%', card_text: 'For regular treatments – transferable and valid for 12 months. ¹ Medical treatments may be VAT-exempt.',
+    book_kicker: 'Online booking', book_title: 'Your appointment in 2 minutes',
+    book_sub: 'Briefly describe your symptoms – we recommend the right treatment and your therapist arrives prepared.',
+    step1: 'What brings you in?', step1_hint: 'Select all that apply',
+    pain_label: 'Current pain level', pain_none: 'none', pain_max: 'severe',
+    rec_label: 'Our recommendation:', rec_apply: 'Apply',
+    step2: 'Choose treatment',
+    step3: 'Therapist', step3_hint: 'We respect your preference – available times adjust automatically.',
+    th_any: 'No preference', th_female: 'Female', th_male: 'Male',
+    step4: 'Date & time', no_slots: 'No free slots left on this day – please pick another day.',
+    today: 'Today', tomorrow: 'Tomorrow',
+    step5: 'Your details',
+    f_name: 'Full name *', f_phone: 'Phone', f_email: 'Email',
+    f_notes: 'Optional: How long have you had symptoms? Job, sports, medical history …',
+    health_title: 'Quick health check (applies to you?)',
+    h_preg: 'Pregnancy', h_blood: 'Taking blood thinners', h_acute: 'Acute injury, fever or inflammation', h_rx: 'I have a doctor\'s prescription',
+    consent: 'I consent to my health information being processed to prepare my treatment (Art. 9(2)(a) GDPR). Can be withdrawn at any time. *',
+    sum_title: 'Your booking', sum_service: 'Treatment', sum_therapist: 'Therapist', sum_date: 'Appointment', sum_symptoms: 'Symptoms', sum_price: 'Price',
+    submit: 'Confirm booking', sum_note: 'Free cancellation up to 24 h before',
+    err_missing: 'Still missing:', e_service: 'treatment', e_slot: 'date & time', e_name: 'name', e_contact: 'phone or email', e_consent: 'consent',
+    modal_title: 'Appointment reserved!', modal_text: 'You\'ll receive a confirmation by email/SMS incl. cancellation link. (Demo – nothing is sent.)',
+    modal_dash: 'View in practice dashboard', modal_close: 'Close',
+    dash_kicker: 'For practice owners', dash_title: 'How your practice sees every booking',
+    dash_sub: 'Book a test appointment above – it appears here instantly, including the digital intake form.',
+    dash_feat1: 'Intake before the visit – more time for treatment',
+    dash_feat2: 'Automatic reminders reduce no-shows',
+    dash_feat3: 'Designed for GDPR-compliant hosting in Germany',
+    dash_app: 'Practice Cockpit', dash_list: 'Incoming bookings',
+    st_appts: 'Total bookings', st_load: 'Utilisation today', st_new: 'New intake forms', st_rev: 'Planned revenue',
+    dash_intake: 'Digital intake form', dash_pain: 'Pain level', dash_areas: 'Affected areas',
+    dash_symptoms: 'Symptoms', dash_flags: 'Health notes', dash_noflags: 'No contraindications reported',
+    dash_notes: 'Patient note', dash_nonotes: '—', dash_confirm: 'Confirm appointment', dash_call: 'Call',
+    dash_contact: 'Contact', dash_rx: 'Prescription on file', dash_selfpay: 'Self-pay',
+    status_pending: 'New', status_confirmed: 'Confirmed', with: 'with', flag_warn: 'Note',
+    contact_title: 'Visit us', contact_sub: '2 minutes from the tram stop, step-free access on the ground floor.',
+    contact_addr: 'Address', contact_hours: 'Opening hours',
+    h_weekdays: 'Mon – Fri', h_sat: 'Saturday', h_sun: 'Sun & holidays', h_closed: 'closed',
+    footer_demo: 'Prototype / demo', footer_privacy: 'Privacy',
+    chat_btn: 'Questions?', chat_title: 'TONUS Assistant', chat_status: 'Replies instantly · AI prototype',
+    chat_hello: 'Hi! 👋 I\'m the digital assistant of TONUS. Pick a question below or type your own.',
+    chat_ph: 'Your question …',
+    chat_fallback: 'Good question! Our team is happy to help personally: ☎ 0821 000 000 00 (Mon–Fri 8am–8pm). Or pick a topic below.'
+  }
+};
+
+const SERVICES = [
+  { id:'back',    dur:45, price:58, icon:'🪑', name:{de:'Rücken-Fokus', en:'Back Focus'},
+    tag:{de:'Büro & Schreibtisch', en:'Desk workers'},
+    desc:{de:'Gezielte Lösung von Verspannungen im unteren & oberen Rücken inkl. Wärmeanwendung und Übung für zuhause.', en:'Targeted release of lower & upper back tension incl. heat therapy and a home exercise.'} },
+  { id:'sport',   dur:60, price:72, icon:'🏃', name:{de:'Sportmassage', en:'Sports Massage'},
+    tag:{de:'Beliebt', en:'Popular'},
+    desc:{de:'Für Vorbereitung und Regeneration – lockert Muskulatur, fördert Durchblutung und beugt Verletzungen vor.', en:'For preparation and recovery – loosens muscles, boosts circulation and helps prevent injuries.'} },
+  { id:'manual',  dur:30, price:65, icon:'🦴', name:{de:'Manuelle Therapie', en:'Manual Therapy'},
+    tag:{de:'Kasse mit Rezept', en:'Covered with prescription'},
+    desc:{de:'Mobilisation blockierter Gelenke an Wirbelsäule, Hüfte und Schulter durch zertifizierte Physiotherapeut:innen.', en:'Mobilisation of restricted joints in spine, hip and shoulder by certified physiotherapists.'} },
+  { id:'neck',    dur:25, price:35, icon:'💆', name:{de:'Nacken & Schulter Express', en:'Neck & Shoulder Express'},
+    tag:{de:'Express', en:'Express'},
+    desc:{de:'Schnelle Hilfe bei Nackenverspannung und Spannungskopfschmerz – ideal in der Mittagspause.', en:'Quick relief for neck tension and tension headaches – perfect for a lunch break.'} },
+  { id:'fascia',  dur:50, price:66, icon:'🎯', name:{de:'Faszien- & Triggerpunkttherapie', en:'Fascia & Trigger Point Therapy'},
+    tag:{de:'Tiefenwirkung', en:'Deep tissue'},
+    desc:{de:'Löst Verklebungen und schmerzhafte Triggerpunkte – bei chronischen, wiederkehrenden Beschwerden.', en:'Releases adhesions and painful trigger points – for chronic, recurring complaints.'} },
+  { id:'classic', dur:60, price:68, icon:'🌿', name:{de:'Klassische Ganzkörpermassage', en:'Classic Full-Body Massage'},
+    tag:{de:'Entspannung', en:'Relaxation'},
+    desc:{de:'Wohltuende Massage für Rücken, Nacken, Arme und Beine – senkt Stress und Muskeltonus.', en:'Soothing massage for back, neck, arms and legs – lowers stress and muscle tone.'} }
+];
+
+const SYMPTOMS = [
+  { id:'lowback',  areas:['lowerback'],        rec:'back',    label:{de:'Unterer Rücken – vom vielen Sitzen', en:'Lower back pain from sitting/work'} },
+  { id:'shoulder', areas:['neck'],             rec:'neck',    label:{de:'Verspannte Schultern & Nacken (Schreibtisch/Stehen)', en:'Stiff shoulders & neck (desk/standing)'} },
+  { id:'headache', areas:['head','neck'],      rec:'neck',    label:{de:'Spannungskopfschmerzen', en:'Tension headaches'} },
+  { id:'sport',    areas:['legs'],             rec:'sport',   label:{de:'Muskelkater / Regeneration nach Sport', en:'Sore muscles / sports recovery'} },
+  { id:'hip',      areas:['hip','lowerback'],  rec:'manual',  label:{de:'Hüfte / ISG-Blockade', en:'Hip / SI joint blockage'} },
+  { id:'injury',   areas:['legs'],             rec:'manual',  label:{de:'Nach Verletzung / Reha', en:'After injury / rehab'} },
+  { id:'stress',   areas:['upperback','neck'], rec:'classic', label:{de:'Stress & allgemeine Verspannung', en:'Stress & general tension'} }
+];
+
+const THERAPISTS = [
+  { name:'Lena Hofmann',  gender:'female', role:{de:'Physiotherapeutin', en:'Physiotherapist'} },
+  { name:'Markus Schäfer', gender:'male',   role:{de:'Masseur & med. Bademeister', en:'Massage therapist'} },
+  { name:'Sophie Krämer', gender:'female', role:{de:'Sportphysiotherapeutin', en:'Sports physiotherapist'} }
+];
+
+const FLAGS = {
+  preg:  {de:'Schwangerschaft', en:'Pregnancy'},
+  blood: {de:'Nimmt Blutverdünner', en:'Takes blood thinners'},
+  acute: {de:'Akute Verletzung / Entzündung', en:'Acute injury / inflammation'}
+};
+
+const FAQ = [
+  { id:'prepare', chip:{de:'Wie bereite ich mich vor?', en:'How do I prepare?'},
+    keys:['vorbereit','prepare','mitbring','bring','kleidung','wear','anzieh'],
+    a:{de:'Gern! Kommen Sie bitte ca. 5 Minuten vorher, trinken Sie ausreichend Wasser und vermeiden Sie eine schwere Mahlzeit 1–2 Stunden vor der Behandlung. Bequeme Kleidung genügt – Handtücher stellen wir. Den Anamnesebogen füllen Sie direkt bei der Online-Buchung aus. Falls vorhanden: Rezept und Befunde mitbringen.',
+       en:'Please arrive about 5 minutes early, drink enough water and avoid a heavy meal 1–2 hours before. Comfortable clothing is fine – we provide towels. You complete the intake form during online booking. If you have them, bring your prescription and medical reports.'} },
+  { id:'insurance', chip:{de:'Zahlt die Krankenkasse?', en:'Does insurance cover this?'},
+    keys:['kasse','versicher','insurance','rezept','prescription','aok','barmer','privat','erstatt','cover','zuzahl'],
+    a:{de:'Mit ärztlicher Verordnung (Rezept) rechnen wir Massage, Krankengymnastik und Manuelle Therapie direkt mit allen gesetzlichen Kassen ab – Sie zahlen nur die gesetzliche Zuzahlung (10 % + 10 € je Verordnung). Privatversicherte und Beihilfe erhalten eine Rechnung zur Einreichung. Ohne Rezept gelten die Selbstzahlerpreise; einige Zusatzversicherungen erstatten anteilig.',
+       en:'With a doctor\'s prescription we bill massage, physiotherapy and manual therapy directly to all statutory insurers – you only pay the statutory co-payment (10% + €10 per prescription). Private patients receive an invoice to submit. Without a prescription, self-pay prices apply; some supplementary plans reimburse part of it.'} },
+  { id:'parking', chip:{de:'Wo kann ich parken?', en:'Where can I park?'},
+    keys:['park','auto','car','anfahrt','tram','bus','directions','anreise','weg'],
+    a:{de:'Hinter dem Haus gibt es 4 kostenlose Patientenparkplätze (Einfahrt über den Hof). Alternativ: Parkhaus am Musterplatz, ca. 4 Min. zu Fuß. Mit den Öffis: Tram-Haltestelle „Musterplatz“, 2 Min. Fußweg. Der Eingang ist barrierefrei.',
+       en:'There are 4 free patient parking spaces behind the building (entrance via the courtyard). Alternatively: Musterplatz car park, about 4 min on foot. By public transport: tram stop "Musterplatz", 2 min walk. Step-free entrance.'} },
+  { id:'cancel', chip:{de:'Stornierung?', en:'Cancellation?'},
+    keys:['storn','absag','cancel','verschieb','reschedul','nicht kommen'],
+    a:{de:'Sie können bis 24 Stunden vorher kostenlos stornieren oder verschieben – einfach über den Link in Ihrer Bestätigung. Bei späterer Absage oder Nichterscheinen berechnen wir 50 % des Behandlungspreises.',
+       en:'You can cancel or reschedule free of charge up to 24 hours before – via the link in your confirmation. For later cancellations or no-shows we charge 50% of the treatment price.'} },
+  { id:'hours', chip:{de:'Öffnungszeiten', en:'Opening hours'},
+    keys:['öffnung','oeffnung','geöffnet','hours','open','wann','uhrzeit'],
+    a:{de:'Wir sind Mo–Fr von 8:00 bis 20:00 Uhr und Sa von 9:00 bis 14:00 Uhr für Sie da. Sonn- und feiertags geschlossen.',
+       en:'We\'re open Mon–Fri 8am–8pm and Sat 9am–2pm. Closed on Sundays and public holidays.'} },
+  { id:'voucher', chip:{de:'Gutscheine', en:'Gift vouchers'},
+    keys:['gutschein','voucher','gift','geschenk'],
+    a:{de:'Ja! Gutscheine gibt es ab 30 € oder für jede Behandlung – an der Rezeption oder auf Anfrage per E-Mail als PDF zum Ausdrucken. 🎁',
+       en:'Yes! Vouchers are available from €30 or for any treatment – at reception or by email as a printable PDF. 🎁'} },
+  { id:'price', chip:null,
+    keys:['preis','kost','price','cost','euro','€','teuer'],
+    a:{de:'Unsere Selbstzahlerpreise: Nacken-Express (25 Min.) 35 €, Rücken-Fokus (45 Min.) 58 €, Manuelle Therapie (30 Min.) 65 €, Faszientherapie (50 Min.) 66 €, Klassische Massage (60 Min.) 68 €, Sportmassage (60 Min.) 72 €. Mit Rezept zahlen Sie nur die Zuzahlung.',
+       en:'Self-pay prices: Neck Express (25 min) €35, Back Focus (45 min) €58, Manual Therapy (30 min) €65, Fascia Therapy (50 min) €66, Classic Massage (60 min) €68, Sports Massage (60 min) €72. With a prescription you only pay the co-payment.'} },
+  { id:'book', chip:{de:'Termin buchen', en:'Book appointment'},
+    keys:['termin','buch','book','appointment','reserv'],
+    a:{de:'Sehr gern – ich bringe Sie direkt zur Online-Buchung. Dort sehen Sie alle freien Zeiten in Echtzeit. 📅',
+       en:'Gladly – I\'ll take you straight to online booking, where you can see all free slots in real time. 📅'},
+    action:() => document.getElementById('buchung').scrollIntoView({behavior:'smooth'}) }
+];
+
+/* =========================================================
+   2) STATE & HELPERS
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const now = new Date();
+const state = {
+  lang: 'de',
+  symptoms: new Set(),
+  pain: 5,
+  service: null,
+  therapist: 'any',
+  date: null,
+  time: null,
+  selectedBooking: null,
+  bookings: []
+};
+
+const t = k => (I18N[state.lang][k] ?? I18N.de[k] ?? k);
+const L = obj => obj[state.lang] ?? obj.de;
+const locale = () => state.lang === 'de' ? 'de-DE' : 'en-GB';
+const euro = n => new Intl.NumberFormat(locale(), {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n);
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const parseYmd = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hash = s => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; };
+const svc = id => SERVICES.find(s => s.id === id);
+
+function dayLabel(dateStr, long = false) {
+  const d = parseYmd(dateStr);
+  const diff = Math.round((d - parseYmd(ymd(now))) / 864e5);
+  if (diff === 0) return t('today');
+  if (diff === 1) return t('tomorrow');
+  return new Intl.DateTimeFormat(locale(), long
+    ? {weekday:'long', day:'numeric', month:'long'}
+    : {weekday:'short', day:'2-digit', month:'2-digit'}).format(d);
+}
+
+/* Opening-hour slots; availability is simulated deterministically per day + preference */
+function slotsFor(dateStr, pref = state.therapist) {
+  const d = parseYmd(dateStr), dow = d.getDay();
+  if (dow === 0) return [];
+  const base = dow === 6
+    ? ['09:00','10:00','11:00','12:00','13:00']
+    : ['08:00','09:00','10:00','11:00','12:00','14:00','15:00','16:00','17:00','18:00','19:00'];
+  const isToday = dateStr === ymd(now);
+  const nowMin = now.getHours() * 60 + now.getMinutes() + 30;
+  return base.map(time => {
+    const [h, m] = time.split(':').map(Number);
+    let taken = hash(dateStr + time + pref) % 10 < (pref === 'male' ? 5 : 3);
+    if (isToday && h * 60 + m <= nowMin) taken = true;
+    if (state.bookings.some(b => b.date === dateStr && b.time === time && (pref === 'any' || b.gender === pref))) taken = true;
+    return { time, taken };
+  });
+}
+
+function bookableDays(n = 14) {
+  const days = [];
+  for (let i = 0; days.length < n && i < 30; i++) {
+    const d = new Date(now); d.setDate(now.getDate() + i);
+    if (d.getDay() !== 0) days.push(ymd(d));
+  }
+  return days;
+}
+
+function assignTherapist(pref, dateStr, time) {
+  const pool = THERAPISTS.filter(th => pref === 'any' || th.gender === pref);
+  return pool[hash(dateStr + time) % pool.length];
+}
+
+/* Seed data for the owner dashboard (today's appointments) */
+function seedBookings() {
+  const today = ymd(now);
+  state.bookings = [
+    { id:1, name:'Julia Becker', phone:'0151 000 0001', email:'julia@example.com', service:'back', date:today, time:'09:00',
+      therapist:'Lena Hofmann', gender:'female', pain:7, symptoms:['lowback','stress'], flags:[], rx:false,
+      notes:'Sitze ca. 9 h täglich im Büro, Schmerzen seit 3 Wochen, morgens schlimmer.', status:'confirmed' },
+    { id:2, name:'Thomas Wagner', phone:'0170 000 0002', email:'', service:'sport', date:today, time:'11:00',
+      therapist:'Markus Schäfer', gender:'male', pain:4, symptoms:['sport'], flags:[], rx:false,
+      notes:'Halbmarathon am Sonntag, Waden sehr fest.', status:'confirmed' },
+    { id:3, name:'Aylin Demir', phone:'0176 000 0003', email:'aylin@example.com', service:'neck', date:today, time:'14:00',
+      therapist:'Sophie Krämer', gender:'female', pain:6, symptoms:['shoulder','headache'], flags:['blood'], rx:false,
+      notes:'Arbeite im Einzelhandel, stehe den ganzen Tag. Kopfschmerzen 2–3x pro Woche.', status:'pending' },
+    { id:4, name:'Klaus Hoffmann', phone:'0821 000 0004', email:'', service:'manual', date:today, time:'16:00',
+      therapist:'Markus Schäfer', gender:'male', pain:8, symptoms:['hip','lowback'], flags:[], rx:true,
+      notes:'Rezept vom Orthopäden: 6x Manuelle Therapie. Ausstrahlung ins linke Bein.', status:'pending' }
+  ];
+  state.selectedBooking = 3;
+}
+
+/* =========================================================
+   3) RENDERING
+   ========================================================= */
+function applyI18n() {
+  document.documentElement.lang = state.lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => el.textContent = t(el.dataset.i18n));
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => el.placeholder = t(el.dataset.i18nPh));
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.className = 'lang-btn px-2.5 py-1 rounded-full ' + (b.dataset.lang === state.lang ? 'bg-sage-700 text-white' : 'text-sage-700'));
+}
+
+function renderServices() {
+  $('#serviceGrid').innerHTML = SERVICES.map(s => `
+    <article class="group rounded-2xl bg-white border border-sand-200 p-6 flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition">
+      <div class="flex items-start justify-between">
+        <span class="w-11 h-11 rounded-xl bg-sage-100 grid place-items-center text-xl">${s.icon}</span>
+        <span class="text-[11px] font-semibold uppercase tracking-wide text-sage-700 bg-sage-50 border border-sage-200 px-2 py-1 rounded-full">${esc(L(s.tag))}</span>
+      </div>
+      <h3 class="font-semibold text-lg mt-4">${esc(L(s.name))}</h3>
+      <p class="text-sm text-sage-800/75 mt-2 flex-1">${esc(L(s.desc))}</p>
+      <div class="mt-5 flex items-end justify-between">
+        <div><span class="text-2xl font-semibold">${euro(s.price)}</span><span class="text-sm text-sage-600"> · ${s.dur} ${t('min')}</span></div>
+        <button data-pick="${s.id}" class="text-sm font-semibold text-coral-500 group-hover:underline">${t('svc_select')} →</button>
+      </div>
+    </article>`).join('');
+}
+
+function renderSymptoms() {
+  $('#symptomChips').innerHTML = SYMPTOMS.map(s => `
+    <button type="button" data-sym="${s.id}" class="px-3.5 py-2 rounded-full border text-sm transition
+      ${state.symptoms.has(s.id) ? 'chip-active' : 'border-sand-300 bg-white hover:border-sage-400'}">${esc(L(s.label))}</button>`).join('');
+  renderRecommendation();
+}
+
+function recommendedService() {
+  if (!state.symptoms.size) return null;
+  const score = {};
+  SYMPTOMS.filter(s => state.symptoms.has(s.id)).forEach(s => score[s.rec] = (score[s.rec] || 0) + 1);
+  return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+}
+
+function renderRecommendation() {
+  const rec = recommendedService(), box = $('#recBox');
+  if (!rec) { box.classList.add('hidden'); return; }
+  const s = svc(rec);
+  box.classList.remove('hidden');
+  box.innerHTML = `
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <p><span class="font-semibold">${t('rec_label')}</span> ${s.icon} ${esc(L(s.name))} (${s.dur} ${t('min')}, ${euro(s.price)})</p>
+      ${state.service === rec ? '<span class="text-sage-700 font-semibold">✓</span>'
+        : `<button type="button" data-pick="${rec}" class="text-xs font-semibold bg-coral-500 text-white px-3 py-1.5 rounded-full">${t('rec_apply')}</button>`}
+    </div>`;
+}
+
+function renderServiceOptions() {
+  $('#serviceOptions').innerHTML = SERVICES.map(s => {
+    const active = state.service === s.id;
+    return `
+    <button type="button" data-pick="${s.id}" class="text-left rounded-xl border p-4 transition
+      ${active ? 'border-sage-700 bg-sage-50 ring-2 ring-sage-200' : 'border-sand-200 hover:border-sage-300 bg-white'}">
+      <div class="flex justify-between gap-2">
+        <span class="font-semibold text-sm">${s.icon} ${esc(L(s.name))}</span>
+        <span class="w-4 h-4 mt-0.5 rounded-full border-2 shrink-0 ${active ? 'border-sage-700 bg-sage-700' : 'border-sand-300'}"></span>
+      </div>
+      <p class="text-xs text-sage-600 mt-1">${s.dur} ${t('min')} · ${euro(s.price)}</p>
+    </button>`;
+  }).join('');
+}
+
+function renderTherapist() {
+  $('#therapistToggle').innerHTML = ['any','female','male'].map(v => `
+    <button type="button" data-th="${v}" class="px-4 py-2 rounded-full transition
+      ${state.therapist === v ? 'bg-white shadow text-ink' : 'text-sage-700 hover:text-ink'}">${t('th_' + v)}</button>`).join('');
+}
+
+function renderDates() {
+  const days = bookableDays();
+  if (!state.date) state.date = days.find(d => slotsFor(d).some(s => !s.taken)) || days[0];
+  $('#dateStrip').innerHTML = days.map(d => {
+    const free = slotsFor(d).filter(s => !s.taken).length;
+    const active = d === state.date;
+    return `
+    <button type="button" data-date="${d}" class="shrink-0 w-[5.5rem] rounded-xl border px-2 py-2.5 text-center transition
+      ${active ? 'chip-active' : 'border-sand-200 bg-white hover:border-sage-300'} ${free ? '' : 'opacity-50'}">
+      <span class="block text-xs font-semibold">${esc(dayLabel(d))}</span>
+      <span class="block text-[11px] mt-0.5 ${active ? 'text-sage-100' : 'text-sage-600'}">${free} ${state.lang === 'de' ? 'frei' : 'free'}</span>
+    </button>`;
+  }).join('');
+  renderSlots();
+}
+
+function renderSlots() {
+  const slots = slotsFor(state.date);
+  if (state.time && !slots.some(s => s.time === state.time && !s.taken)) state.time = null;
+  if (!slots.some(s => !s.taken)) {
+    $('#slotGrid').innerHTML = `<p class="col-span-full text-sm text-sage-600 bg-sand-50 rounded-xl p-4">${t('no_slots')}</p>`;
+    return;
+  }
+  $('#slotGrid').innerHTML = slots.map(s => `
+    <button type="button" ${s.taken ? 'disabled' : `data-time="${s.time}"`} class="py-2.5 rounded-xl border text-sm font-medium transition
+      ${s.taken ? 'border-sand-200 text-sage-300 line-through cursor-not-allowed bg-sand-50'
+        : state.time === s.time ? 'chip-active' : 'border-sand-200 bg-white hover:border-sage-400'}">${s.time}</button>`).join('');
+}
+
+function renderSummary() {
+  const s = svc(state.service);
+  $('#sumService').textContent = s ? `${L(s.name)} (${s.dur} ${t('min')})` : '–';
+  $('#sumTherapist').textContent = t('th_' + state.therapist);
+  $('#sumDate').textContent = state.time ? `${dayLabel(state.date, true)}, ${state.time}` : '–';
+  $('#sumSymptoms').textContent = state.symptoms.size ? state.symptoms.size + '×' : '–';
+  $('#sumPrice').textContent = s ? euro(s.price) : '–';
+}
+
+function updateHeroNext() {
+  for (const d of bookableDays()) {
+    const free = slotsFor(d, 'any').find(s => !s.taken);
+    if (free) { $('#heroNext').textContent = `${dayLabel(d, true)}, ${free.time}`; return; }
+  }
+}
+
+function renderAll() {
+  applyI18n(); renderServices(); renderSymptoms(); renderServiceOptions(); renderTherapist();
+  renderDates(); renderSummary(); updateHeroNext(); renderDashboard(); resetChat();
+}
+
+/* ---------- Owner dashboard ---------- */
+function bodyMap(areas) {
+  const on = a => areas.includes(a) ? 'fill="#e5694a" fill-opacity=".55"' : 'fill="transparent"';
+  return `
+  <svg viewBox="0 0 120 260" class="w-24 h-auto mx-auto" aria-label="Body map">
+    <g fill="#e2ecea" stroke="#9dbfb8" stroke-width="1.5">
+      <circle cx="60" cy="24" r="16"/>
+      <rect x="53" y="38" width="14" height="12" rx="4"/>
+      <rect x="30" y="48" width="60" height="92" rx="16"/>
+      <rect x="12" y="54" width="15" height="84" rx="7.5"/>
+      <rect x="93" y="54" width="15" height="84" rx="7.5"/>
+      <rect x="34" y="136" width="52" height="28" rx="10"/>
+      <rect x="35" y="160" width="21" height="92" rx="10"/>
+      <rect x="64" y="160" width="21" height="92" rx="10"/>
+    </g>
+    <circle cx="60" cy="24" r="10" ${on('head')}/>
+    <ellipse cx="60" cy="52" rx="26" ry="9" ${on('neck')}/>
+    <ellipse cx="60" cy="82" rx="22" ry="15" ${on('upperback')}/>
+    <ellipse cx="60" cy="120" rx="20" ry="12" ${on('lowerback')}/>
+    <ellipse cx="60" cy="150" rx="24" ry="10" ${on('hip')}/>
+    <ellipse cx="45.5" cy="200" rx="9" ry="26" ${on('legs')}/>
+    <ellipse cx="74.5" cy="200" rx="9" ry="26" ${on('legs')}/>
+  </svg>`;
+}
+
+function renderDashboard() {
+  const list = [...state.bookings].sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const today = ymd(now);
+  const todayCount = list.filter(b => b.date === today).length;
+  const capacity = slotsFor(today, 'none').length * THERAPISTS.length || 1;
+  const pending = list.filter(b => b.status === 'pending').length;
+  const revenue = list.reduce((sum, b) => sum + svc(b.service).price, 0);
+
+  $('#dashDate').textContent = new Intl.DateTimeFormat(locale(), {weekday:'long', day:'numeric', month:'long', year:'numeric'}).format(now);
+
+  const stat = (label, value, accent = '') => `
+    <div class="rounded-2xl bg-white border border-sand-200 p-4">
+      <p class="text-xs text-sage-600">${label}</p>
+      <p class="text-2xl font-semibold mt-1 ${accent}">${value}</p>
+    </div>`;
+  $('#dashStats').innerHTML =
+    stat(t('st_appts'), list.length) +
+    stat(t('st_load'), Math.min(100, Math.round(todayCount / capacity * 100 * 4)) + ' %') +
+    stat(t('st_new'), pending, pending ? 'text-coral-500' : '') +
+    stat(t('st_rev'), euro(revenue));
+
+  $('#dashList').innerHTML = list.map(b => {
+    const active = b.id === state.selectedBooking;
+    return `
+    <li>
+      <button data-bk="${b.id}" class="w-full text-left px-4 py-3 flex gap-3 items-start transition ${active ? 'bg-sage-50' : 'hover:bg-sand-50'}">
+        <div class="w-14 shrink-0 text-center">
+          <p class="text-sm font-semibold">${b.time}</p>
+          <p class="text-[10px] text-sage-600">${esc(dayLabel(b.date))}</p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold truncate">${esc(b.name)}</p>
+          <p class="text-xs text-sage-600 truncate">${esc(L(svc(b.service).name))} · ${esc(b.therapist.split(' ')[0])}</p>
+        </div>
+        <div class="flex flex-col items-end gap-1">
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${b.status === 'pending' ? 'bg-coral-100 text-coral-600' : 'bg-sage-100 text-sage-700'}">${t('status_' + b.status)}</span>
+          ${b.flags.length ? `<span class="text-[10px] text-coral-600">⚠ ${t('flag_warn')}</span>` : ''}
+        </div>
+      </button>
+    </li>`;
+  }).join('');
+
+  const b = state.bookings.find(x => x.id === state.selectedBooking) || list[0];
+  if (!b) { $('#dashDetail').innerHTML = ''; return; }
+  const areas = [...new Set(b.symptoms.flatMap(id => SYMPTOMS.find(s => s.id === id)?.areas || []))];
+  const painColor = b.pain >= 7 ? 'bg-coral-500' : b.pain >= 4 ? 'bg-amber-400' : 'bg-sage-500';
+
+  $('#dashDetail').innerHTML = `
+    <div class="flex items-start justify-between gap-3 flex-wrap">
+      <div>
+        <p class="text-xs uppercase tracking-wider text-sage-600 font-semibold">${t('dash_intake')}</p>
+        <h3 class="text-xl font-semibold mt-1">${esc(b.name)}</h3>
+        <p class="text-sm text-sage-700">${esc(L(svc(b.service).name))} · ${esc(dayLabel(b.date, true))}, ${b.time} · ${t('with')} ${esc(b.therapist)}</p>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full ${b.rx ? 'bg-sage-100 text-sage-700' : 'bg-sand-100 text-sage-800'}">${b.rx ? '📄 ' + t('dash_rx') : t('dash_selfpay')}</span>
+    </div>
+
+    <div class="mt-5 grid sm:grid-cols-[auto,1fr] gap-6 items-start">
+      <div class="text-center">
+        ${bodyMap(areas)}
+        <p class="text-[11px] text-sage-600 mt-2">${t('dash_areas')}</p>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-sm"><span class="font-medium">${t('dash_pain')}</span><span class="font-semibold">${b.pain}/10</span></div>
+          <div class="h-2 rounded-full bg-sand-100 mt-1.5 overflow-hidden"><div class="h-full ${painColor} rounded-full" style="width:${b.pain * 10}%"></div></div>
+        </div>
+        <div>
+          <p class="text-sm font-medium mb-1.5">${t('dash_symptoms')}</p>
+          <div class="flex flex-wrap gap-1.5">${b.symptoms.map(id => `<span class="text-xs bg-sage-50 border border-sage-200 px-2 py-1 rounded-full">${esc(L(SYMPTOMS.find(s => s.id === id).label))}</span>`).join('') || '—'}</div>
+        </div>
+        <div>
+          <p class="text-sm font-medium mb-1.5">${t('dash_flags')}</p>
+          ${b.flags.length
+            ? b.flags.map(f => `<p class="text-xs bg-coral-100 text-coral-600 font-medium px-2.5 py-1.5 rounded-lg mb-1">⚠ ${esc(L(FLAGS[f]))}</p>`).join('')
+            : `<p class="text-xs text-sage-700">✓ ${t('dash_noflags')}</p>`}
+        </div>
+        <div>
+          <p class="text-sm font-medium mb-1">${t('dash_notes')}</p>
+          <p class="text-sm text-sage-800 bg-sand-50 rounded-lg p-3 italic">${esc(b.notes) || t('dash_nonotes')}</p>
+        </div>
+        <p class="text-xs text-sage-600">${t('dash_contact')}: ${esc(b.phone || '—')}${b.email ? ' · ' + esc(b.email) : ''}</p>
+      </div>
+    </div>
+
+    <div class="mt-5 pt-4 border-t border-sand-200 flex gap-2 flex-wrap">
+      ${b.status === 'pending'
+        ? `<button data-confirm="${b.id}" class="bg-sage-700 hover:bg-sage-800 text-white text-sm font-semibold px-4 py-2 rounded-full">${t('dash_confirm')}</button>`
+        : `<span class="text-sm font-semibold text-sage-700 px-2 py-2">✓ ${t('status_confirmed')}</span>`}
+      <button class="border border-sand-200 text-sm font-semibold px-4 py-2 rounded-full">☎ ${t('dash_call')}</button>
+    </div>`;
+}
+
+/* =========================================================
+   4) BOOKING LOGIC
+   ========================================================= */
+function pickService(id, scroll = false) {
+  state.service = id;
+  renderServiceOptions(); renderRecommendation(); renderSummary();
+  if (scroll) document.getElementById('buchung').scrollIntoView({behavior:'smooth'});
+}
+
+function submitBooking() {
+  const name = $('#fName').value.trim(), phone = $('#fPhone').value.trim(), email = $('#fEmail').value.trim();
+  const missing = [];
+  if (!state.service) missing.push(t('e_service'));
+  if (!state.time) missing.push(t('e_slot'));
+  if (!name) missing.push(t('e_name'));
+  if (!phone && !email) missing.push(t('e_contact'));
+  if (!$('#consent').checked) missing.push(t('e_consent'));
+
+  const err = $('#formError');
+  if (missing.length) {
+    err.textContent = `${t('err_missing')} ${missing.join(', ')}`;
+    err.classList.remove('hidden');
+    return;
+  }
+  err.classList.add('hidden');
+
+  const th = assignTherapist(state.therapist, state.date, state.time);
+  const booking = {
+    id: Date.now(), name, phone, email, service: state.service, date: state.date, time: state.time,
+    therapist: th.name, gender: th.gender, pain: state.pain, symptoms: [...state.symptoms],
+    flags: [['preg','#hPreg'],['blood','#hBlood'],['acute','#hAcute']].filter(([, sel]) => $(sel).checked).map(([f]) => f),
+    rx: $('#hRx').checked, notes: $('#fNotes').value.trim(), status: 'pending'
+  };
+  state.bookings.push(booking);
+  state.selectedBooking = booking.id;
+
+  const s = svc(booking.service);
+  $('#modalBody').innerHTML = `
+    <p><strong>${esc(L(s.name))}</strong> · ${s.dur} ${t('min')} · ${euro(s.price)}</p>
+    <p>📅 ${esc(dayLabel(booking.date, true))}, ${booking.time}</p>
+    <p>👤 ${esc(th.name)} (${esc(L(th.role))})</p>`;
+  $('#modal').classList.remove('hidden');
+
+  // reset the form for the next demo run
+  state.time = null; state.symptoms.clear(); state.service = null; state.pain = 5;
+  $('#bookingForm').reset(); $('#painVal').textContent = 5;
+  renderSymptoms(); renderServiceOptions(); renderDates(); renderSummary(); updateHeroNext(); renderDashboard();
+}
+
+/* =========================================================
+   5) CHAT WIDGET
+   ========================================================= */
+function addMsg(text, from = 'bot') {
+  const wrap = document.createElement('div');
+  wrap.className = `flex fade-in ${from === 'user' ? 'justify-end' : 'justify-start'}`;
+  wrap.innerHTML = `<div class="max-w-[85%] text-sm leading-relaxed px-3.5 py-2.5 rounded-2xl ${from === 'user'
+    ? 'bg-sage-700 text-white rounded-br-md' : 'bg-white border border-sand-200 rounded-bl-md'}">${esc(text)}</div>`;
+  $('#chatMessages').appendChild(wrap);
+  $('#chatMessages').scrollTop = $('#chatMessages').scrollHeight;
+}
+
+function botReply(faq) {
+  const typing = document.createElement('div');
+  typing.className = 'flex';
+  typing.innerHTML = `<div class="bg-white border border-sand-200 rounded-2xl rounded-bl-md px-4 py-3 flex gap-1">
+    <span class="dot w-1.5 h-1.5 rounded-full bg-sage-500"></span><span class="dot w-1.5 h-1.5 rounded-full bg-sage-500"></span><span class="dot w-1.5 h-1.5 rounded-full bg-sage-500"></span></div>`;
+  $('#chatMessages').appendChild(typing);
+  $('#chatMessages').scrollTop = $('#chatMessages').scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    addMsg(faq ? L(faq.a) : t('chat_fallback'));
+    if (faq?.action) faq.action();
+  }, 650);
+}
+
+function matchFaq(text) {
+  const q = text.toLowerCase();
+  return FAQ.find(f => f.keys.some(k => q.includes(k)));
+}
+
+function resetChat() {
+  $('#chatMessages').innerHTML = '';
+  addMsg(t('chat_hello'));
+  $('#chatChips').innerHTML = FAQ.filter(f => f.chip).map(f => `
+    <button data-faq="${f.id}" class="text-xs px-3 py-1.5 rounded-full border border-sage-200 bg-sage-50 hover:bg-sage-100 text-sage-800 transition">${esc(L(f.chip))}</button>`).join('');
+}
+
+/* =========================================================
+   6) EVENTS
+   ========================================================= */
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-lang],[data-pick],[data-sym],[data-th],[data-date],[data-time],[data-bk],[data-confirm],[data-faq]');
+  if (!el) return;
+  const d = el.dataset;
+
+  if (d.lang) { state.lang = d.lang; renderAll(); }
+  else if (d.pick) pickService(d.pick, !el.closest('#bookingForm'));
+  else if (d.sym) { state.symptoms.has(d.sym) ? state.symptoms.delete(d.sym) : state.symptoms.add(d.sym); renderSymptoms(); renderSummary(); }
+  else if (d.th) { state.therapist = d.th; renderTherapist(); renderDates(); renderSummary(); }
+  else if (d.date) { state.date = d.date; renderDates(); renderSummary(); }
+  else if (d.time) { state.time = d.time; renderSlots(); renderSummary(); }
+  else if (d.bk) { state.selectedBooking = Number(d.bk); renderDashboard(); }
+  else if (d.confirm) { const b = state.bookings.find(x => x.id === Number(d.confirm)); if (b) b.status = 'confirmed'; renderDashboard(); }
+  else if (d.faq) { const f = FAQ.find(x => x.id === d.faq); addMsg(L(f.chip), 'user'); botReply(f); }
+});
+
+$('#pain').addEventListener('input', e => { state.pain = Number(e.target.value); $('#painVal').textContent = state.pain; });
+$('#submitBtn').addEventListener('click', submitBooking);
+
+$('#chatToggle').addEventListener('click', () => $('#chatPanel').classList.toggle('hidden'));
+$('#chatClose').addEventListener('click', () => $('#chatPanel').classList.add('hidden'));
+$('#chatForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const text = $('#chatInput').value.trim();
+  if (!text) return;
+  addMsg(text, 'user'); $('#chatInput').value = '';
+  botReply(matchFaq(text));
+});
+
+$('#modalClose').addEventListener('click', () => $('#modal').classList.add('hidden'));
+$('#modalDash').addEventListener('click', () => {
+  $('#modal').classList.add('hidden');
+  document.getElementById('dashboard').scrollIntoView({behavior:'smooth'});
+});
+
+/* =========================================================
+   7) INIT
+   ========================================================= */
+seedBookings();
+renderAll();
+</script>
+</body>
+</html>
